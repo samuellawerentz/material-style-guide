@@ -1,0 +1,14 @@
+import { Meta } from '@storybook/addon-docs';
+/* eslint import/no-webpack-loader-syntax: off */
+import css from '!!raw-loader!../style/variables.scss';
+
+<Meta title="Colors/Css Variable List" />
+
+# CSS Variables for Contacto Colors
+
+While using this style guide, make sure that you import this variable file so that the colors stay constant.
+
+You can copy this file and save it as variables.css and import it in your `App.css` on the top - 
+```@import './style/variables.css';```
+
+<pre><code className="language-css">{`//variables.css\n\n${css}`}</code></pre>

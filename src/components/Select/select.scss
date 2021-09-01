@@ -1,0 +1,120 @@
+.sg.contacto-select-wrapper {
+    position: relative;
+    --height: 36px;
+    .contacto-select {
+        border-radius: 0;
+        box-shadow: 0px 0px 8px rgba(106, 110, 128, 0.15);
+        border: 1px solid var(--border-color-1);
+        height: var(--height);
+        width: 100%;
+
+        &--no-shadow {
+            box-shadow: none;
+        }
+        .MuiSelect-outlined.MuiSelect-outlined{
+            height: calc(var(--height) - 2px);
+            padding: 0 12px;
+            line-height: calc(var(--height) - 2px);
+            background-color: #fff;
+            padding-right: 28px;
+            display: flex;
+            align-items: center;
+            &.Mui-disabled {
+                background-color: var(--gray-6);
+            }
+        }
+        fieldset {
+            display: none;
+        }
+
+        &:hover,
+        &:active,
+        &:focus,
+        &[class*='focused'] {
+            &:not(.Mui-disabled) {
+                box-shadow: none;
+                border: 1px solid var(--primary-color);
+            }
+        }
+
+        .contacto-select-caret {
+            position: absolute;
+            right: 8px;
+            cursor: pointer;
+            pointer-events: none;
+            color: var(--gray-3);
+        }
+
+        &[class*='focused'] {
+            .contacto-icon {
+                color: var(--primary-color);
+            }
+        }
+
+        &[class*="disabled"],
+        &[disabled]:hover {
+            background-color: var(--gray-6);
+            border: 1px solid var(--gray-6);
+            box-shadow: none;
+        }
+
+        &--readonly:not(.increase-specificity) {
+            box-shadow: none;
+            background-color: var(--gray-6);
+            color: var(--primary-text-color);
+        }
+
+    }
+
+    .contacto-select-placeholder {
+        position: absolute;
+        bottom: 0;
+        transform: translateX(12px);
+        z-index: 1;
+        height: var(--height);
+        line-height: var(--height);
+        display: inline-block;
+        pointer-events: none;
+    }
+
+    .contacto-select-label-wrapper {
+        margin-bottom: 4px;
+        line-height: 0;
+    }
+
+    &.contacto-select--small {
+        --height: 28px;
+    }
+    .sg.contacto-loader {
+        position: absolute;
+        right: 8px;
+    }
+}
+
+
+.sg.contacto-select-listbox {
+    padding: 0;
+    border-radius: 0;
+    max-height: 238px;
+    .MuiListItem-root {
+        border-bottom: 1px solid var(--border-color);
+
+        &:hover, &.Mui-selected {
+            background-color: var(--background-highlight-color);
+            .selected-item {
+                font-weight: 600;
+                color: var(--primary-color);
+            }
+        }
+    }
+    .select-item {
+        line-height: 33px;
+        &-no-data {
+            padding: 0 12px;
+        }
+    }
+
+    .MuiList-padding {
+        padding: 4px 0;
+    }
+}

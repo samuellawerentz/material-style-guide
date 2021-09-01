@@ -1,0 +1,97 @@
+.caption {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.sg.contacto-typography {
+    color: var(--primary-text-color);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: normal;
+
+    &--large-title {
+        font-size: 26px;
+        line-height: 38px;
+        font-weight: 400;
+    }
+
+    &--title-1 {
+        font-size: 22px;
+        line-height: 32px;
+        font-weight: 400;
+    }
+
+    &--title-2 {
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+
+    &--title-3 {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+    }
+
+    &--headline {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+
+    &--subtitle {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 500;
+    }
+
+    &--body {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+    }
+
+    &--caption {
+        @extend .caption;
+        font-weight: 400;
+    }
+
+    &--caption-bold {
+        @extend .caption;
+        font-weight: 600;
+    }
+
+    &--caption-italic {
+        @extend .caption;
+        font-style: italic;
+    }
+
+    &--caption-capital {
+        @extend .caption;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    &--primary {
+        color: var(--primary-color);
+    }
+
+    &--secondary {
+        color: var(--secondary-text-color);
+    }
+
+    &[class*="title"], &--block {
+        display: block;
+    }
+
+    &--left {
+        text-align: left;
+    }
+
+    &--right {
+        text-align: right;
+    }
+
+    &--center {
+        text-align: center;
+    }
+}
