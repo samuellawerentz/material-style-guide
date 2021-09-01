@@ -15,6 +15,7 @@ export const Select = React.forwardRef(function Select(
     placeholder,
     readOnly,
     className,
+    dropdownWidth,
     dropdownClassName,
     listHeight,
     size,
@@ -86,9 +87,8 @@ export const Select = React.forwardRef(function Select(
           },
           anchorEl: () => wrapperRef.current,
           TransitionProps: {
-            onEnter: () => {
-              // wrapperRef.current.querySelector('.contacto-select-listbox').style.width =
-              //   wrapperRef.current.offsetWidth + 'px'
+            onEnter: (element) => {
+              element.style.width = dropdownWidth || wrapperRef.current.offsetWidth + 'px'
             },
           },
           anchorOrigin: {
@@ -184,6 +184,7 @@ Select.propTypes = {
   onChange: PropTypes.func,
   renderValue: PropTypes.func,
   value: PropTypes.any,
+  dropdownWidth: PropTypes.any,
 }
 
 Select.defaultProps = {

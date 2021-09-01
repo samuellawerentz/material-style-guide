@@ -47,6 +47,8 @@ export const Button = ({
   fullWidth,
   align,
   className,
+  loading,
+  disabled,
   children,
   ...props
 }) => {
@@ -61,7 +63,10 @@ export const Button = ({
         fullWidth,
         align,
       )}
-      startIcon={icon ? <Icon name={icon} className={size} /> : null}
+      startIcon={
+        loading ? <Icon.Loading size={20} /> : icon ? <Icon name={icon} className={size} /> : null
+      }
+      disabled={loading || disabled}
       {...props}
     >
       {label || children}
@@ -101,6 +106,7 @@ Button.propTypes = {
    */
   align: PropTypes.oneOf(['left', 'right', 'center']),
   children: PropTypes.any,
+  loading: PropTypes.bool,
 }
 
 Button.defaultProps = {

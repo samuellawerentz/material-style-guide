@@ -24,7 +24,7 @@ Default.args = {
   onChange: (value) => console.log(value),
   options: [
     {
-      value: 'Appleasfjkasjdfjsdlkfj asdf asdfas fdasdfasdfasdfasfdasdasfafsafkh',
+      value: 'This is a long option that will create ellipsis',
     },
     { value: 'Ball' },
     { value: 'Cat' },

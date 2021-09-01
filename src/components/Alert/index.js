@@ -12,7 +12,7 @@ const iconMap = {
 }
 
 /**
- * Description
+ * Component that is used to show alert messages
  */
 export const Alert = ({ className = '', type, message, ...props }) => {
   return (
@@ -35,7 +35,13 @@ Alert.propTypes = {
    * Class to be added
    */
   className: PropTypes.string,
+  /**
+   * The type of alert
+   */
   type: PropTypes.oneOf(['info', 'success', 'danger', 'warning']),
+  /**
+   * The alert message to be displayed
+   */
   message: PropTypes.string,
 }
 
