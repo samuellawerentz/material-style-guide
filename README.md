@@ -31,22 +31,18 @@ For the compoenents to work properly, make sure the consumer project has these d
 #### CSS variables
 
 This style guide completely depends on CSS variables that are commonly defined by the design team. Make sure that the variables are included on the top for the style guide to work properly.
-- [CSS Variable list](https://samuellawerentz.github.io/style-guide/?path=/story/colors-css-variable-list--page)
+- [CSS Variable list](https://contacto-io.github.io/material-style-guide/?path=/story/colors-css-variable-list--page)
 
 #### Icons
 
-The icons used are taken from the google icon package. So for icons to work properly, make sure google font for material Icons is loaded properly.
-
-```css
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=block');
-```
+The icons used are taken from the google icon package. We use Material Rounded Icons throughout our App. For icon names, please visit [Google Material Icon Website](https://fonts.google.com/icons)
 
 ## Useful Links
 
 - Design Style Guide
-  - Components - https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=217%3A106
-  - Spacing - https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=809%3A179
-  - Typography and Colors - https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=0%3A1
-  - Logo and Favicon - https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=819%3A179
-- Style Guide Package - https://github.com/contacto-io/contacto-console/packages/915367
-- Component Library live demo - https://samuellawerentz.github.io/style-guide/
+  - [Components](https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=217%3A106)
+  - [Spacing](https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=809%3A179)
+  - [Typography and Colors](https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=0%3A1)
+  - [Logo and Favicon](https://www.figma.com/file/Qbo6JU64XtTjo6npGWdX2z/Contacto-Style-Guide?node-id=819%3A179)
+- [Style Guide Package](https://github.com/contacto-io/contacto-web-app/packages/961026)
+- [Component Library Storybook](https://contacto-io.github.io/material-style-guide/?path=/docs/introduction--page)

@@ -1,16 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import './styles.scss'
 import PropTypes from 'prop-types'
 
+/**
+ * A block Column component which provides spacing options to all of its children.
+ * It adds margin-bottom to each children as provided by the spacing prop.
+ */
 const Column = (props) => {
-  const columnRef = useRef(null)
-  useEffect(() => {
-    if (props.spacing?.length && columnRef.current?.children.length) {
-      Array.from(columnRef.current?.children).forEach(
-        (child, i) => (child.style.marginBottom = `${props.spacing[i % props.spacing.length]}px`),
-      )
-    }
-  }, [props.spacing])
   return (
     <div
       className={[
@@ -18,9 +14,14 @@ const Column = (props) => {
         props.className,
         props.align ? `contacto-block-column--${props.align}` : '',
       ].join(' ')}
-      ref={columnRef}
     >
-      {props.children}
+      {props.spacing?.length
+        ? React.Children.map(props.children, (child, i) => {
+            return React.cloneElement(child, {
+              style: { marginBottom: `${props.spacing[i % props.spacing.length]}px` },
+            })
+          })
+        : props.children}
     </div>
   )
 }

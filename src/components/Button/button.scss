@@ -1,3 +1,27 @@
+// This CSS file incorporates the maximum benefit of SCSS mixins, variables and CSS Variables
+// Mixin that is used to set the CSS Variables for the respective buttons
+@mixin btn-colors($type, $base-color, $hover-bg-color, $disabled-color) {
+  --hover-color: #{$hover-bg-color};
+  --disabled-color: #{$disabled-color};
+  --disabled-border-color: var(--disabled-color);
+  --border-color: #{$base-color};
+
+  @if $type=="fill"or $type=="link" {
+    --base-color: #{$base-color};
+    --text-color: var(--white);
+    --disabled-text-color: var(--text-color);
+    --disabled-bg-color: var(--disabled-color);
+  }
+
+  @else if $type=="outline" {
+    --base-color: var(--white);
+    --text-color: #{$base-color};
+    --disabled-text-color: #{$disabled-color};
+    --disabled-bg-color: var(--white);
+  }
+}
+
+// The base class
 .sg.cnto-btn.contacto-button {
   min-width: 60px;
   padding: 8px 16px;
@@ -10,125 +34,79 @@
   text-transform: none;
   font-family: Poppins, sans-serif;
   font-weight: 400;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
 
-  &--primary {
-    background-color: var(--primary-color);
-    color: var(--white);
+  // Hover state
+  &:hover {
+    background-color: var(--hover-color);
+  }
+
+  // Disabled state
+  &[disabled],
+  &[disabled]:hover {
+    color: var(--disabled-text-color);
+    background-color: var(--disabled-bg-color);
+    border: 1px solid var(--disabled-border-color);
+  }
+
+  // Styles for links
+  &[class*="link"] {
+    color: var(--base-color);
+    font-weight: 600;
+    background-color: var(--white);
+    border: none;
 
     &:hover {
-      color: var(--white);
-      background-color: var(--primary-color-5);
+      color: var(--hover-color);
     }
 
     &[disabled],
     &[disabled]:hover {
-      color: var(--white);
-      background-color: var(--primary-color-2);
+      color: var(--disabled-color);
+      background-color: var(--white);
     }
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+
+  // Button Variations start here
+  // The style generation is made simple using SCSS mixins and CSS variables
+  &--primary,
+  &--link {
+    @include btn-colors("fill", var(--primary-color), var(--primary-color-5), var(--primary-color-2));
   }
 
   &--secondary {
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-
-    &:hover {
-      color: var(--primary-color);
-      background-color: var(--dark-bg);
-      border: 1px solid var(--primary-color);
-    }
-
-    &[disabled],
-    &[disabled]:hover {
-      color: var(--primary-color-2);
-      background-color: var(--white);
-      border: 1px solid var(--primary-color-2);
-    }
-  }
-
-  &--secondary-gray {
-    //TODO:
-    // Add disabled state and color when required
-    border: 1px solid var(--border-color-1);
-
-    &:hover {
-      background-color: var(--dark-bg);
-      border: 1px solid var(--primary-color);
-    }
+    @include btn-colors("outline", var(--primary-color), var(--dark-bg), var(--primary-color-2));
   }
 
   &--danger {
     &-primary {
-      color: var(--white);
-      background-color: var(--danger-color);
-
-      &:hover {
-        color: var(--white);
-        background-color: var(--danger-color-5);
-      }
-
-      &[disabled],
-      &[disabled]:hover {
-        color: var(--white);
-        background-color: var(--danger-color-2);
-      }
+      @include btn-colors("fill", var(--danger-color), var(--danger-color-5), var(--danger-color-2));
     }
 
     &-secondary {
-      color: var(--danger-color);
-      border: 1px solid var(--danger-color);
-
-      &:hover {
-        color: var(--danger-color);
-        background-color: var(--danger-color-4);
-        border: 1px solid var(--danger-color);
-      }
-
-      &[disabled],
-      &[disabled]:hover {
-        color: var(--danger-color-2);
-        border: 1px solid var(--danger-color-2);
-        background-color: var(--white)
-      }
+      @include btn-colors("outline", var(--danger-color), var(--danger-color-4), var(--danger-color-2));
     }
-  }
-
-  &--link {
-    color: var(--primary-color);
-    font-weight: 600;
-
-    &:hover {
-      color: var(--primary-color-5);
-    }
-
-    &[disabled],
-    &[disabled]:hover {
-      color: var(--primary-color-2);
-      background-color: var(--white);
-    }
-  }
-
-  &[class*="link"]:hover {
-    background-color: transparent;
   }
 
   &--link-danger {
-    color: var(--danger-color);
-    font-weight: 600;
-
-    &:hover {
-      color: var(--danger-color-5);
-    }
-
-    &[disabled],
-    &[disabled]:hover {
-      color: var(--danger-color-2);
-      background-color: var(--white);
-    }
+    @include btn-colors("link", var(--danger-color), var(--danger-color-5), var(--danger-color-2));
   }
 
+  // Spacing and sizing related styles start here
   &--small {
     height: 28px;
     padding: 4px 8px;
+
+    &.contacto-button--only-icon {
+      padding: 4px;
+    }
   }
 
   &--large {
@@ -159,18 +137,7 @@
     padding-left: 8px;
   }
 
-  &--table-action-link {
-    color: var(--secondary-text-color);
-    padding: 8px 0px;
-    padding-left: 0;
-    min-width: auto;
-
-    &:hover {
-      color: var(--primary-color);
-      background-color: #fff;
-    }
-  }
-
+  // Icon related styles
   .contacto-icon {
     margin-right: 8px
   }
@@ -188,8 +155,10 @@
       }
     }
   }
+
   .MuiButton-startIcon {
     margin: 0;
+
     .sg.contacto-loader {
       margin-right: 8px;
     }
