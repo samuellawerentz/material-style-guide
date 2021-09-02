@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 .npmrc
+/build
 
 # testing
 /coverage
