@@ -12,8 +12,8 @@
   ],
   "dependencies": {},
   "scripts": {
-    "build": "rollup -c",
-    "css-build": "node-sass --omit-source-map-url src/style/variables.scss build/style-guide.css",
+    "build": "npm run css-build && rollup -c",
+    "css-build": "node-sass --omit-source-map-url src/style/main.scss build/style-guide.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s dist",
@@ -86,7 +86,6 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
-    "rollup-plugin-uglify": "^6.0.4",
     "source-map-explorer": "^2.5.2",
     "ts-dedent": "^2.1.1"
   },

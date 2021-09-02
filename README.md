@@ -6,12 +6,13 @@ Buliding them here makes it easy to develop hard-to-reach states. These **storie
 
 ## How to use?
 
-1. Install the component package `npm install @contacto-io/material-style-guide`
-2. Import the component that is required - ```import { Button } from '@contacto-io/material-style-guide'```
-3. Visit the particular component page on the storybook app.
-4. Navigate to your required story.
-5. Copy the code and modify the `props` as required.
-6. Since all the components are wrapper components upon Material UI, please visit [material docs](https://ant.design/components/overview/) for additional information.
+1. Install the component package `npm install @contacto-io/style-guide`
+2. Add `@import "~@contacto-io/material-style-guide/build/style-guide.css";` to your main CSS file (Eg. App.scss)
+3. Import the component that is required - ```import { Button } from '@contacto-io/style-guide'```
+4. Visit the particular component page on the storybook app.
+5. Navigate to your required story.
+6. Copy the code and modify the `props` as required.
+7. Since all the components are wrapper components upon Material UI, please visit [material docs](https://material-ui.com/getting-started/installation/) for additional information.
 
 ## Technical Requirements
 
