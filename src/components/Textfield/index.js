@@ -19,6 +19,7 @@ export const TextField = React.forwardRef(function TextField(
     readOnly,
     password,
     noShadow,
+    maxLength,
     className = '',
     ...props
   },
@@ -42,6 +43,7 @@ export const TextField = React.forwardRef(function TextField(
           readOnly ? 'contacto-input--readonly' : '',
           className,
         ].join(' ')}
+        inputProps={{ maxLength: maxLength }}
         InputProps={{
           disableUnderline: true,
           fullWidth: true,
@@ -101,6 +103,10 @@ TextField.propTypes = {
    * Is it a password field?
    */
   password: PropTypes.bool,
+  /**
+   * Is it a password field?
+   */
+  maxLength: PropTypes.number,
 }
 
 TextField.defaultProps = {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import './styles.scss'
 
@@ -14,37 +14,50 @@ const Loading = ({ size = 24 }) => {
     </span>
   )
 }
+
 /**
  * Google Icons that are used in the application.
  *
  * Please visit https://fonts.google.com/icons to find different icons and their names
  */
-export const Icon = ({ className = '', name, size, color, style, hoverColor, ...props }) => {
+export const Icon = ({ className = '', name, size, color, style, hoverColor, svg, ...props }) => {
   const [iconColor, setIconColor] = useState(color ? `var(--${color})` : undefined)
   let iconEventProps = {}
+  const SvgIcon = svg
+
   if (color && hoverColor) {
     iconEventProps = {
       onMouseEnter: () => setIconColor(`var(--${hoverColor})`),
       onMouseLeave: () => setIconColor(`var(--${color})`),
     }
   }
+
+  // Effect to update color if the prop chages dynamically
+  useEffect(() => {
+    setIconColor(`var(--${color})`)
+  }, [color])
+
   return (
     <span
-      className={['sg contacto-icon', 'material-icons-round', className].join(' ')}
+      className={[
+        'sg contacto-icon',
+        !svg ? 'material-icons-round' : 'contacto-icon-custom',
+        className,
+      ].join(' ')}
       style={{
+        ...style,
         color: iconColor,
         fontSize: size,
         cursor: hoverColor && 'pointer',
         overflow: 'hidden',
-        maxHeight: size,
-        maxWidth: size,
         lineHeight: 1,
-        ...style,
+        width: size,
+        height: size,
       }}
       {...props}
       {...iconEventProps}
     >
-      {name}
+      {svg ? <SvgIcon /> : name}
     </span>
   )
 }
@@ -77,6 +90,7 @@ Icon.propTypes = {
    */
   hoverColor: PropTypes.string,
   style: PropTypes.object,
+  svg: PropTypes.any,
 }
 
 Icon.defaultProps = {

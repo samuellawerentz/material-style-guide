@@ -24,6 +24,7 @@ Default.args = {
   type: 'input',
   size: 'default',
   placeholder: 'A simple text field',
+  maxLength: 50,
 }
 
 export const SearchBox = Template.bind({})

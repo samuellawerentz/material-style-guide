@@ -22,6 +22,7 @@ export const getButtonClassName = (
   onlyIcon,
   fullWidth,
   align,
+  loading,
 ) => {
   return [
     'sg',
@@ -31,6 +32,7 @@ export const getButtonClassName = (
     size ? `contacto-button--${size}` : '',
     icon ? `contacto-button--with-icon` : '',
     onlyIcon ? 'contacto-button--only-icon' : '',
+    loading ? `contacto-button--loading` : '',
     fullWidth ? 'contacto-button--full-width' : '',
     align ? `contacto-button--${align}` : '',
     className,
@@ -62,14 +64,14 @@ export const Button = ({
         !(label || children) && icon,
         fullWidth,
         align,
+        loading,
       )}
-      startIcon={
-        loading ? <Icon.Loading size={20} /> : icon ? <Icon name={icon} className={size} /> : null
-      }
+      startIcon={icon ? <Icon name={icon} className={size} /> : null}
       disabled={loading || disabled}
       {...props}
     >
-      {label || children}
+      {loading ? <Icon.Loading size={20} /> : null}
+      <span className="contacto-button-content">{label || children}</span>
     </MuiButton>
   )
 }

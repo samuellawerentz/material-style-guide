@@ -146,6 +146,7 @@
     padding: 8px;
     min-width: auto;
     width: auto;
+    border: 0;
 
     .contacto-icon {
       margin-right: 0;
@@ -153,6 +154,16 @@
       &.small {
         font-size: 20px;
       }
+    }
+  }
+
+  &--loading {
+    span.MuiButton-label>*:not(.contacto-loader) {
+      opacity: 0;
+    }
+
+    span.MuiButton-label .contacto-loader {
+      position: absolute;
     }
   }
 
