@@ -107,6 +107,14 @@ WithColor.args = {
   color: 'success-color',
 }
 
+export const WithHighlightColor = Template.bind({})
+WithHighlightColor.args = {
+  children: 'This is headline',
+  type: 'headline',
+  highlightColor: 'primary-color-4',
+  variant: 'primary',
+}
+
 export const SkeletonText = SkeletonTemplate.bind({})
 SkeletonText.args = {
   children: 'This is headline',

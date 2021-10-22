@@ -21,6 +21,7 @@ export const TextField = React.forwardRef(function TextField(
     noShadow,
     maxLength,
     className = '',
+    errorMsg,
     ...props
   },
   ref,
@@ -41,6 +42,7 @@ export const TextField = React.forwardRef(function TextField(
           'contacto-input--' + size,
           noShadow ? 'contacto-input--no-shadow' : '',
           readOnly ? 'contacto-input--readonly' : '',
+          errorMsg ? 'contacto-input--has-error' : '',
           className,
         ].join(' ')}
         inputProps={{ maxLength: maxLength }}
@@ -48,19 +50,28 @@ export const TextField = React.forwardRef(function TextField(
           disableUnderline: true,
           fullWidth: true,
           startAdornment: icon ? (
-            <>
-              {
-                <span className="material-icons-round contacto-icon contacto-icon--input-prefix">
-                  {icon}
-                </span>
-              }
-            </>
+            typeof icon === 'string' ? (
+              <>
+                {
+                  <span className="material-icons-round contacto-icon contacto-icon--input-prefix">
+                    {icon}
+                  </span>
+                }
+              </>
+            ) : (
+              <>{icon}</>
+            )
           ) : null,
         }}
         disabled={readOnly || disabled}
         placeholder={placeholder}
         {...props}
       />
+      {errorMsg && (
+        <Text.Block type="caption" color="danger-color" spacing={[0, 4]}>
+          {errorMsg}
+        </Text.Block>
+      )}
     </div>
   )
 })
@@ -107,6 +118,7 @@ TextField.propTypes = {
    * Is it a password field?
    */
   maxLength: PropTypes.number,
+  errorMsg: PropTypes.string,
 }
 
 TextField.defaultProps = {

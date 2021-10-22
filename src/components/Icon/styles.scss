@@ -1,6 +1,7 @@
 .sg.contacto-icon {
     user-select: none;
     display: inline-block;
+    flex-shrink: 0;
     &-custom {
         svg {
             width: 100%;
