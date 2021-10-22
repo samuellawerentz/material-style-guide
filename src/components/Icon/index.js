@@ -34,7 +34,7 @@ export const Icon = ({ className = '', name, size, color, style, hoverColor, svg
 
   // Effect to update color if the prop chages dynamically
   useEffect(() => {
-    setIconColor(`var(--${color})`)
+    color && setIconColor(`var(--${color})`)
   }, [color])
 
   return (
@@ -45,7 +45,6 @@ export const Icon = ({ className = '', name, size, color, style, hoverColor, svg
         className,
       ].join(' ')}
       style={{
-        ...style,
         color: iconColor,
         fontSize: size,
         cursor: hoverColor && 'pointer',
@@ -53,6 +52,7 @@ export const Icon = ({ className = '', name, size, color, style, hoverColor, svg
         lineHeight: 1,
         width: size,
         height: size,
+        ...style,
       }}
       {...props}
       {...iconEventProps}

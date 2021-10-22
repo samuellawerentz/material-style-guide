@@ -10,6 +10,7 @@ import { Icon } from '../Icon/index'
 export const Select = React.forwardRef(function Select(
   {
     label,
+    type,
     icon,
     disabled,
     placeholder,
@@ -185,6 +186,7 @@ Select.propTypes = {
   renderValue: PropTypes.func,
   value: PropTypes.any,
   dropdownWidth: PropTypes.any,
+  type: PropTypes.any,
 }
 
 Select.defaultProps = {

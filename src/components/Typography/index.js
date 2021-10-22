@@ -17,6 +17,7 @@ export const Text = ({
   align,
   ellipsis,
   component,
+  skeletonText,
   ...props
 }) => {
   return (
@@ -33,12 +34,28 @@ export const Text = ({
       noWrap={props.noWrap || ellipsis}
       component={component}
       style={{ ...style, color: color ? `var(--${color})` : undefined }}
+      skeletonText={skeletonText}
       {...props}
     >
       {children}
     </Typography>
   )
 }
+
+const SkeletonText = (props) => (
+  <Text {...props}>
+    <span
+      className={[
+        'contacto-skeleton contacto-skeleton--text',
+        props.showSkeleton ? 'skeleton--show' : '',
+      ].join(' ')}
+    >
+      {props.children || props.skeletonText}
+    </span>
+  </Text>
+)
+
+Text.Skeleton = SkeletonText
 
 Text.propTypes = {
   /**
@@ -69,6 +86,7 @@ Text.propTypes = {
   align: PropTypes.oneOf(['left', 'right', 'center']),
   ellipsis: PropTypes.bool,
   component: PropTypes.string,
+  skeletonText: PropTypes.string,
 }
 
 Text.defaultProps = {

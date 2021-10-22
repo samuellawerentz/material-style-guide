@@ -20,6 +20,7 @@ export default {
 }
 
 const Template = (args) => <Text {...args} />
+const SkeletonTemplate = (args) => <Text.Skeleton {...args} />
 
 export const All = (args) => (
   <Block.Column spacing={[8]}>
@@ -104,4 +105,12 @@ WithColor.args = {
   children: 'This is headline',
   type: 'headline',
   color: 'success-color',
+}
+
+export const SkeletonText = SkeletonTemplate.bind({})
+SkeletonText.args = {
+  children: 'This is headline',
+  type: 'headline',
+  color: 'success-color',
+  showSkeleton: true,
 }
