@@ -53,6 +53,7 @@ export const Select = React.forwardRef(function Select(
         className={selectedValue === option.value ? 'select-item selected-item' : 'select-item'}
         align="left"
         ellipsis
+        title={typeof option.label === 'string' ? option.label : option.value}
       >
         {option.label ? option.label : option.value}
       </Text>

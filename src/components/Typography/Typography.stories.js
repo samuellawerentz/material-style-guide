@@ -36,6 +36,14 @@ export const All = (args) => (
   </Block.Column>
 )
 
+export const Ellipsis = (args) => (
+  <div style={{ width: '100px' }}>
+    <Text type="caption" ellipsis="true">
+      This is an ellipsis example
+    </Text>
+  </div>
+)
+
 export const LargeTitle = Template.bind({})
 LargeTitle.args = {
   children: 'This is a large title',
