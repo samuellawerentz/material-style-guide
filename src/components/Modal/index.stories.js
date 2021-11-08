@@ -17,8 +17,9 @@ const Template = (args) => <Modal {...args} />
 export const Default = Template.bind({})
 Default.args = {
   title: 'Sample Modal',
-  content: 'This is the content',
+  children: 'This is the content',
   visible: true,
+  onClose: (e, reason) => console.log('Modal closed due to', reason),
   footerButtons: [
     <Button key="Cancel" type="secondary">
       Cancel

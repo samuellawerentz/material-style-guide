@@ -7,7 +7,15 @@ import { Text } from '../Typography/index'
 /**
  * Component that is used to show Modal
  */
-export const Modal = ({ className = '', title, content, footerButtons, visible, ...props }) => {
+export const Modal = ({
+  className = '',
+  title,
+  footerButtons,
+  onClose,
+  visible,
+  children,
+  ...props
+}) => {
   const [open, setOpen] = useState(false)
   useEffect(() => setOpen(visible), [visible])
 
@@ -15,7 +23,9 @@ export const Modal = ({ className = '', title, content, footerButtons, visible, 
     <MaterialModal
       className={['sg contacto-modal', className].join(' ')}
       open={open}
-      onClose={() => setOpen(false)}
+      onClose={(...args) => {
+        onClose?.(...args) !== false && setOpen(false)
+      }}
       BackdropComponent={Backdrop}
       BackdropProps={{
         timeout: 500,
@@ -27,7 +37,7 @@ export const Modal = ({ className = '', title, content, footerButtons, visible, 
           <div className="contacto-modal-title">
             <Text type="title-2">{title}</Text>
           </div>
-          <div className="contacto-modal-content">{content}</div>
+          <div className="contacto-modal-content">{children}</div>
           {footerButtons && footerButtons.length && (
             <div className="contacto-modal-footer">{footerButtons.map((button) => button)}</div>
           )}
@@ -47,10 +57,6 @@ Modal.propTypes = {
    */
   title: PropTypes.any,
   /**
-   * The content of the modal
-   */
-  content: PropTypes.any,
-  /**
    * Footer Buttons to be displayed
    */
   footerButtons: PropTypes.array,
@@ -58,6 +64,18 @@ Modal.propTypes = {
    * Whether to show popup or not
    */
   visible: PropTypes.bool,
+  /**
+   * Triggered when modal is closed
+   *
+   * Dev Note #1: Set the visible prop to false while this is triggered
+   *
+   * Dev Note #2: You can return `false` to stop the modal from closing
+   */
+  onClose: PropTypes.func,
+  /**
+   * The content of the modal
+   */
+  children: PropTypes.any,
 }
 
 Modal.defaultProps = {}
