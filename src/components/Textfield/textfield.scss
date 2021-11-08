@@ -7,6 +7,7 @@
             padding: 0;
             height: calc(var(--height) - 2px);
         }
+
         .MuiInputBase-root {
             font-family: Poppins, sans-serif;
             font-size: 14px;
@@ -28,6 +29,12 @@
                 .contacto-icon {
                     color: var(--primary-color);
                 }
+            }
+        }
+
+        &.contacto-input--has-error {
+            .MuiInputBase-root {
+                border: 1px solid var(--danger-color);
             }
         }
 
