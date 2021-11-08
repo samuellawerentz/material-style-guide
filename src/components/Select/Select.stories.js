@@ -105,3 +105,27 @@ ReadOnly.args = {
     },
   ],
 }
+
+export const SmallSelectWithIconAndBackground = Template.bind({})
+SmallSelectWithIconAndBackground.args = {
+  type: 'background',
+  size: 'small',
+  placeholder: 'A simple text field',
+  value: 'Cat',
+  noShadow: true,
+  options: [
+    {
+      value: 'Cat',
+      label: (
+        <Block display="flex" alignItems="center">
+          <Block horizontalSpacing={[0, 4]}>
+            <Icon name="phone" size={16} />
+          </Block>
+          <Block style={{ minWidth: 0 }}>
+            <Text ellipsis>Cat sfadsfasfadsfaf</Text>
+          </Block>
+        </Block>
+      ),
+    },
+  ],
+}
