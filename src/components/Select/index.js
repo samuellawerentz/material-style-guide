@@ -10,6 +10,7 @@ import { Icon } from '../Icon/index'
 export const Select = React.forwardRef(function Select(
   {
     label,
+    type,
     icon,
     disabled,
     placeholder,
@@ -52,6 +53,7 @@ export const Select = React.forwardRef(function Select(
         className={selectedValue === option.value ? 'select-item selected-item' : 'select-item'}
         align="left"
         ellipsis
+        title={typeof option.label === 'string' ? option.label : option.value}
       >
         {option.label ? option.label : option.value}
       </Text>
@@ -185,6 +187,7 @@ Select.propTypes = {
   renderValue: PropTypes.func,
   value: PropTypes.any,
   dropdownWidth: PropTypes.any,
+  type: PropTypes.any,
 }
 
 Select.defaultProps = {

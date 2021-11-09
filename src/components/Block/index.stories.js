@@ -19,6 +19,13 @@ export const Default = Template.bind({})
 Default.args = {
   spacing: [20, 30],
   children: 'This is a block with margin-bottom: 20px and margin-top: 30px',
+  padding: [20, 10],
+}
+
+export const BlockWithHorizontalSpacing = Template.bind({})
+BlockWithHorizontalSpacing.args = {
+  horizontalSpacing: [20, 30],
+  children: 'This is a block with margin-left: 20px and margin-right: 30px',
 }
 
 export const BlockColumn = (args) => (

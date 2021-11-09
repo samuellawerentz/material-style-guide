@@ -20,6 +20,7 @@ export default {
 }
 
 const Template = (args) => <Text {...args} />
+const SkeletonTemplate = (args) => <Text.Skeleton {...args} />
 
 export const All = (args) => (
   <Block.Column spacing={[8]}>
@@ -33,6 +34,14 @@ export const All = (args) => (
     <Text type="caption-italic">This is an italic caption</Text>
     <Text type="caption-capital">This is a capital caption</Text>
   </Block.Column>
+)
+
+export const Ellipsis = (args) => (
+  <div style={{ width: '100px' }}>
+    <Text type="caption" ellipsis="true">
+      This is an ellipsis example
+    </Text>
+  </div>
 )
 
 export const LargeTitle = Template.bind({})
@@ -104,4 +113,20 @@ WithColor.args = {
   children: 'This is headline',
   type: 'headline',
   color: 'success-color',
+}
+
+export const WithHighlightColor = Template.bind({})
+WithHighlightColor.args = {
+  children: 'This is headline',
+  type: 'headline',
+  highlightColor: 'primary-color-4',
+  variant: 'primary',
+}
+
+export const SkeletonText = SkeletonTemplate.bind({})
+SkeletonText.args = {
+  children: 'This is headline',
+  type: 'headline',
+  color: 'success-color',
+  showSkeleton: true,
 }

@@ -1,5 +1,8 @@
 import React from 'react'
 import { Select } from '.'
+import { Icon } from '../Icon/index'
+import { Text } from '../Typography/index'
+import { Block } from '../Block'
 
 export default {
   title: 'Components/Select',
@@ -18,7 +21,7 @@ const Template = (args) => <Select {...args} />
 export const Default = Template.bind({})
 Default.args = {
   type: 'input',
-  size: 'default',
+  size: 'small',
   placeholder: 'A simple text field',
   value: 'Cat',
   onChange: (value) => console.log(value),
@@ -27,7 +30,19 @@ Default.args = {
       value: 'This is a long option that will create ellipsis',
     },
     { value: 'Ball' },
-    { value: 'Cat' },
+    {
+      value: 'Cat',
+      label: (
+        <Block display="flex" alignItems="center">
+          <Block horizontalSpacing={[0, 4]}>
+            <Icon name="phone" size={16} />
+          </Block>
+          <Block>
+            <Text>Cat</Text>
+          </Block>
+        </Block>
+      ),
+    },
     { value: 'Duck' },
     { value: 'Egg' },
     { value: 'Fish' },

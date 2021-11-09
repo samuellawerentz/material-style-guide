@@ -1,5 +1,7 @@
 import React from 'react'
 import { TEXTFIELD_TYPES, TextField } from '.'
+import { ReactComponent as CustomIcon } from '../../assets/ic-account.svg'
+import { Icon } from '../Icon'
 
 export default {
   title: 'Components/Textfield',
@@ -24,6 +26,7 @@ Default.args = {
   type: 'input',
   size: 'default',
   placeholder: 'A simple text field',
+  maxLength: 50,
 }
 
 export const SearchBox = Template.bind({})
@@ -40,6 +43,14 @@ WithIcon.args = {
   size: 'default',
   placeholder: 'A textfield with an icon',
   icon: 'search',
+}
+
+export const WithCustomIcon = Template.bind({})
+WithCustomIcon.args = {
+  type: 'input',
+  size: 'default',
+  placeholder: 'A textfield with a custom icon',
+  icon: <Icon svg={CustomIcon} size={24} />,
 }
 
 export const WithLabel = Template.bind({})
@@ -76,4 +87,12 @@ Password.args = {
   size: 'default',
   placeholder: 'An read-only textfield',
   value: 'Read only',
+}
+
+export const WithErrorMessage = Template.bind({})
+WithErrorMessage.args = {
+  type: 'input',
+  size: 'default',
+  value: '',
+  errorMsg: 'Required Field',
 }
