@@ -73,8 +73,6 @@ export const SmallSize = Template.bind({})
 SmallSize.args = {
   size: 'small',
   placeholder: 'A small select',
-  showSearch: true,
-  allowClear: true,
 }
 
 export const WithLabel = Template.bind({})
