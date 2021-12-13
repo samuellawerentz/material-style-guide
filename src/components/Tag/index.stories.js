@@ -50,7 +50,7 @@ InProgress.args = {
 }
 
 export const Warning = Template.bind({})
-InProgress.args = {
+Warning.args = {
   label: 'In Progress',
   type: 'warning',
 }

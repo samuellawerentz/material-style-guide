@@ -70,7 +70,7 @@ export const Button = ({
       disabled={loading || disabled}
       {...props}
     >
-      {loading ? <Icon.Loading size={20} /> : null}
+      {loading ? <Icon.Loading size={20} strokeWidth={1} trackColor="white" /> : null}
       <span className="contacto-button-content">{label || children}</span>
     </MuiButton>
   )
