@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextField as MuiTextField } from '@material-ui/core'
 import { Text } from '../Typography/index'
+import { Icon } from '../Icon/index'
 import PropTypes from 'prop-types'
 import './textfield.scss'
 
@@ -22,6 +23,7 @@ export const TextField = React.forwardRef(function TextField(
     maxLength,
     className = '',
     errorMsg,
+    loading,
     ...props
   },
   ref,
@@ -49,6 +51,11 @@ export const TextField = React.forwardRef(function TextField(
         InputProps={{
           disableUnderline: true,
           fullWidth: true,
+          endAdornment: loading ? (
+            <span className="contacto-loader--input-postfix">
+              <Icon.Loading size={20} />
+            </span>
+          ) : null,
           startAdornment: icon ? (
             typeof icon === 'string' ? (
               <>
@@ -106,6 +113,10 @@ TextField.propTypes = {
    * Show the value as readonly
    */
   readOnly: PropTypes.bool,
+  /**
+   * Show the loader
+   */
+  loading: PropTypes.bool,
   /**
    * Set to true, if you don't want the shadow.
    */
