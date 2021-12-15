@@ -44,7 +44,7 @@ const colors = {
   'danger-color-2': '#FF9191',
   'danger-color-3': '#FFB5B5',
   'danger-color-4': '#FFEDED',
-  'danger-color-5': '#FF4747',
+  'danger-color-5': '#E41D1D',
   'danger-color-6': '#FFEDED',
 
   'pale-grey': '#e7ecf2',

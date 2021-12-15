@@ -78,7 +78,7 @@
   // The style generation is made simple using SCSS mixins and CSS variables
   &--primary,
   &--link {
-    @include btn-colors("fill", var(--primary-color), var(--primary-color-5), var(--primary-color-2));
+    @include btn-colors("fill", var(--primary-color), var(--primary-color-6), var(--primary-color-2));
   }
 
   &--secondary {
