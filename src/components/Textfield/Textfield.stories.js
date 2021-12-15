@@ -102,5 +102,5 @@ WithLoader.args = {
   type: 'input',
   size: 'default',
   value: '',
-  loading: 'true',
+  loading: true,
 }
