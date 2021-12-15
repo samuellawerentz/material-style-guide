@@ -53,7 +53,7 @@ export const TextField = React.forwardRef(function TextField(
           fullWidth: true,
           endAdornment: loading ? (
             <span className="contacto-loader--input-postfix">
-              <Icon.Loading size={20} />
+              <Icon.Loading size={size === 'small' ? 16 : 20} strokeWidth={2} />
             </span>
           ) : null,
           startAdornment: icon ? (
