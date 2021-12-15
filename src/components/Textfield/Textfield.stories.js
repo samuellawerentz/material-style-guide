@@ -96,3 +96,11 @@ WithErrorMessage.args = {
   value: '',
   errorMsg: 'Required Field',
 }
+
+export const WithLoader = Template.bind({})
+WithLoader.args = {
+  type: 'input',
+  size: 'default',
+  value: '',
+  loading: true,
+}

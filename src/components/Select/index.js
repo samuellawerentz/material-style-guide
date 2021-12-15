@@ -107,7 +107,7 @@ export const Select = React.forwardRef(function Select(
         disabled={readOnly || disabled}
         IconComponent={() =>
           loading ? (
-            <Icon.Loading />
+            <Icon.Loading size={size === 'small' ? 16 : 20} strokeWidth={2} />
           ) : (
             <Icon
               name="expand_more"
