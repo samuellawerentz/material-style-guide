@@ -34,9 +34,11 @@ export const Modal = ({
     >
       <Fade in={open}>
         <div className="contacto-modal-container">
-          <div className="contacto-modal-title">
-            <Text type="title-2">{title}</Text>
-          </div>
+          {title && (
+            <div className="contacto-modal-title">
+              <Text type="title-2">{title}</Text>
+            </div>
+          )}
           <div className="contacto-modal-content">{children}</div>
           {footerButtons && footerButtons.length && (
             <div className="contacto-modal-footer">{footerButtons.map((button) => button)}</div>
