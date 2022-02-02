@@ -70,6 +70,8 @@ const TextBlock = ({
   alignItems,
   horizontalSpacing,
   padding,
+  gap,
+  flex,
   ...props
 }) => {
   const blockProps = {
@@ -81,6 +83,8 @@ const TextBlock = ({
     alignItems,
     horizontalSpacing,
     padding,
+    gap,
+    flex,
   }
   return (
     <Block {...blockProps}>
