@@ -38,6 +38,8 @@ export const Block = ({
   alignItems,
   horizontalSpacing,
   padding,
+  gap,
+  flex,
   ...props
 }) => {
   return (
@@ -54,6 +56,8 @@ export const Block = ({
         display,
         justifyContent,
         alignItems,
+        gap,
+        flex,
       }}
       {...props}
     />
@@ -80,6 +84,8 @@ Block.propTypes = {
   justifyContent: PropTypes.string,
   alignItems: PropTypes.string,
   padding: PropTypes.any,
+  gap: PropTypes.any,
+  flex: PropTypes.string,
 }
 
 Block.defaultProps = {
