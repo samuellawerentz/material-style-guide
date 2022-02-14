@@ -52,6 +52,7 @@ export const Button = ({
   loading,
   disabled,
   children,
+  loaderColor,
   ...props
 }) => {
   return (
@@ -70,7 +71,9 @@ export const Button = ({
       disabled={loading || disabled}
       {...props}
     >
-      {loading ? <Icon.Loading size={20} strokeWidth={1} trackColor="white" /> : null}
+      {loading ? (
+        <Icon.Loading size={20} strokeWidth={1} color={loaderColor} trackColor="white" />
+      ) : null}
       <span className="contacto-button-content">{label || children}</span>
     </MuiButton>
   )
@@ -109,6 +112,7 @@ Button.propTypes = {
   align: PropTypes.oneOf(['left', 'right', 'center']),
   children: PropTypes.any,
   loading: PropTypes.bool,
+  loaderColor: PropTypes.string,
 }
 
 Button.defaultProps = {
