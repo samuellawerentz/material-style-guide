@@ -17,5 +17,5 @@ const Template = (args) => <Tooltip {...args} />
 export const Default = Template.bind({})
 Default.args = {
   children: <Text>Hover Me!</Text>,
-  title: 'Im the tooltip',
+  title: <Text>Hover Me!</Text>,
 }
