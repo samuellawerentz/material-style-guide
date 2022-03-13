@@ -104,3 +104,13 @@ WithLoader.args = {
   value: '',
   loading: true,
 }
+
+export const WithClearIcon = Template.bind({})
+WithClearIcon.args = {
+  type: 'input',
+  size: 'default',
+  placeholder: 'A simple text field',
+  maxLength: 50,
+  onClearText: () => {},
+  value: 'Default Text with clear Icon',
+}
