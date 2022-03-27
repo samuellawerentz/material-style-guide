@@ -46,6 +46,7 @@ export const TextField = React.forwardRef(function TextField(
           noShadow ? 'contacto-input--no-shadow' : '',
           readOnly ? 'contacto-input--readonly' : '',
           errorMsg ? 'contacto-input--has-error' : '',
+          loading ? 'contacto-input--is-loading' : '',
           className,
         ].join(' ')}
         inputProps={{ maxLength: maxLength }}

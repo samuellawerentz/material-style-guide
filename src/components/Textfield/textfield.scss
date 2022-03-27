@@ -21,7 +21,7 @@
             box-shadow: 0px 0px 8px rgba(106, 110, 128, 0.15);
             border: 1px solid var(--border-color-1);
             height: var(--height);
-            padding-left: 12px;
+            padding: 0 12px;
             width: 100%;
             &:hover,
             &:active,
@@ -37,6 +37,15 @@
                 .contacto-icon {
                     color: var(--primary-color);
                 }
+            }
+        }
+
+        &.contacto-input--is-loading {
+            .MuiInputBase-input {
+                max-width: 90% !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
         }
 
