@@ -114,3 +114,22 @@ WithClearIcon.args = {
   onClearText: () => {},
   value: 'Default Text with clear Icon',
 }
+
+export const TextArea = Template.bind({})
+TextArea.args = {
+  type: 'input',
+  size: 'default',
+  placeholder: 'Text Area Placeholder',
+  multiline: true,
+  rows: 2,
+}
+
+export const TextAreaWithError = Template.bind({})
+TextAreaWithError.args = {
+  type: 'input',
+  size: 'default',
+  placeholder: 'Text Area Placeholder',
+  multiline: true,
+  rows: 2,
+  errorMsg: 'Required Field',
+}
