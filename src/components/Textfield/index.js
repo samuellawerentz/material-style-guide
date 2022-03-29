@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextField as MuiTextField } from '@material-ui/core'
 import { Text } from '../Typography/index'
+import { Icon } from '../Icon/index'
 import PropTypes from 'prop-types'
 import './textfield.scss'
 
@@ -16,12 +17,14 @@ export const TextField = React.forwardRef(function TextField(
     size,
     disabled,
     placeholder,
+    onClearText,
     readOnly,
     password,
     noShadow,
     maxLength,
     className = '',
     errorMsg,
+    loading,
     ...props
   },
   ref,
@@ -49,6 +52,19 @@ export const TextField = React.forwardRef(function TextField(
         InputProps={{
           disableUnderline: true,
           fullWidth: true,
+          endAdornment: loading ? (
+            <span className="contacto-loader--input-postfix">
+              <Icon.Loading size={size === 'small' ? 16 : 20} strokeWidth={2} />
+            </span>
+          ) : onClearText && props.value ? (
+            <Icon
+              name="cancel"
+              color="gray-2"
+              size={16}
+              className="clear-text-icon"
+              onClick={onClearText}
+            />
+          ) : null,
           startAdornment: icon ? (
             typeof icon === 'string' ? (
               <>
@@ -107,6 +123,10 @@ TextField.propTypes = {
    */
   readOnly: PropTypes.bool,
   /**
+   * Show the loader
+   */
+  loading: PropTypes.bool,
+  /**
    * Set to true, if you don't want the shadow.
    */
   noShadow: PropTypes.bool,
@@ -115,10 +135,16 @@ TextField.propTypes = {
    */
   password: PropTypes.bool,
   /**
+   * Action to take on clearing the input,
+   * Also used to show the clear icon
+   */
+  onClearText: PropTypes.func,
+  /**
    * Is it a password field?
    */
   maxLength: PropTypes.number,
   errorMsg: PropTypes.string,
+  value: PropTypes.any,
 }
 
 TextField.defaultProps = {

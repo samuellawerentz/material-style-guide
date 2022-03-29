@@ -14,6 +14,7 @@ export const Modal = ({
   onClose,
   visible,
   children,
+  minWidth = 430,
   ...props
 }) => {
   const [open, setOpen] = useState(false)
@@ -33,10 +34,12 @@ export const Modal = ({
       {...props}
     >
       <Fade in={open}>
-        <div className="contacto-modal-container">
-          <div className="contacto-modal-title">
-            <Text type="title-2">{title}</Text>
-          </div>
+        <div className="contacto-modal-container" style={{ minWidth }}>
+          {title && (
+            <div className="contacto-modal-title">
+              <Text type="title-2">{title}</Text>
+            </div>
+          )}
           <div className="contacto-modal-content">{children}</div>
           {footerButtons && footerButtons.length && (
             <div className="contacto-modal-footer">{footerButtons.map((button) => button)}</div>
@@ -64,6 +67,10 @@ Modal.propTypes = {
    * Whether to show popup or not
    */
   visible: PropTypes.bool,
+  /**
+   * Min-width of the modal
+   */
+  minWidth: PropTypes.any,
   /**
    * Triggered when modal is closed
    *

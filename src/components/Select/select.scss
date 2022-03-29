@@ -1,6 +1,7 @@
 .sg.contacto-select-wrapper {
     position: relative;
     --height: 36px;
+
     .contacto-select {
         border-radius: 0;
         box-shadow: 0px 0px 8px rgba(106, 110, 128, 0.15);
@@ -11,7 +12,38 @@
         &--no-shadow {
             box-shadow: none;
         }
-        .MuiSelect-outlined.MuiSelect-outlined{
+
+        // Type "Background"
+        &.contacto-select--background {
+            border: 1px solid var(--background-highlight-color);
+            &:hover,
+            &:active,
+            &:focus,
+            &[class*='focused'] {
+                border: 1px solid var(--primary-color-4);
+                &:not(.Mui-disabled) {
+                    border: 1px solid var(--primary-color-4);
+                }
+                .MuiSelect-outlined.MuiSelect-outlined {
+                    background-color: var(--primary-color-4);
+                }
+            }
+
+            .MuiSelect-outlined.MuiSelect-outlined {
+                background-color: var(--background-highlight-color);
+                padding: 0 4px;
+                border-radius: 0;
+                .selected-item{
+                    width: calc(100% - 32px);
+                }
+            }
+            .contacto-select-caret {
+                color: var(--primary-color);
+                right: 4px;
+            }
+        }
+
+        .MuiSelect-outlined.MuiSelect-outlined {
             height: calc(var(--height) - 2px);
             padding: 0 12px;
             line-height: calc(var(--height) - 2px);
@@ -19,10 +51,12 @@
             padding-right: 28px;
             display: flex;
             align-items: center;
+
             &.Mui-disabled {
                 background-color: var(--gray-6);
             }
         }
+
         fieldset {
             display: none;
         }
@@ -46,7 +80,7 @@
         }
 
         &[class*='focused'] {
-            .contacto-icon {
+            .contacto-icon.contacto-select-caret {
                 color: var(--primary-color);
             }
         }
@@ -85,6 +119,7 @@
     &.contacto-select--small {
         --height: 28px;
     }
+
     .sg.contacto-loader {
         position: absolute;
         right: 8px;
@@ -96,19 +131,25 @@
     padding: 0;
     border-radius: 0;
     max-height: 238px;
+
     .MuiListItem-root {
         border-bottom: 1px solid var(--border-color);
 
-        &:hover, &.Mui-selected {
+        &:hover,
+        &.Mui-selected {
             background-color: var(--background-highlight-color);
+
             .selected-item {
                 font-weight: 600;
                 color: var(--primary-color);
             }
         }
     }
+
     .select-item {
         line-height: 33px;
+        color: var(--primary-text-color);
+
         &-no-data {
             padding: 0 12px;
         }
@@ -116,5 +157,12 @@
 
     .MuiList-padding {
         padding: 4px 0;
+    }
+
+    &.contacto-select-listbox--background {
+        .MuiListItem-gutters {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
     }
 }

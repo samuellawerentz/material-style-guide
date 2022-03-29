@@ -7,6 +7,11 @@
             padding: 0;
             height: calc(var(--height) - 2px);
         }
+        .clear-text-icon {
+            margin-right: 8px;
+            display: none;
+            cursor: pointer;
+        }
 
         .MuiInputBase-root {
             font-family: Poppins, sans-serif;
@@ -23,6 +28,9 @@
             &:focus,
             &[class*='focused'] {
                 border: 1px solid var(--primary-color);
+                .clear-text-icon {
+                    display: block;
+                }
             }
             
             &[class*='focused'] {
@@ -91,5 +99,10 @@
         color: var(--gray-1);
         font-size: 20px;
         margin-right: 4px;
+    }
+
+    .contacto-loader--input-postfix {
+        position: absolute;
+        right: 8px;
     }
 }

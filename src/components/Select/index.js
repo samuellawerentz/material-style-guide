@@ -79,13 +79,16 @@ export const Select = React.forwardRef(function Select(
           'contacto-select',
           readOnly ? 'contacto-select--readonly' : '',
           noShadow ? 'contacto-select--no-shadow' : '',
+          `contacto-select--${type}`,
         ].join(' ')}
         ref={ref}
         onChange={handleChange}
         renderValue={renderValue ? handleRenderValue : undefined}
         MenuProps={{
           classes: {
-            paper: `sg contacto-select-listbox ${dropdownClassName || ''}`,
+            paper: `sg contacto-select-listbox ${type ? `contacto-select-listbox--${type}` : ''} ${
+              dropdownClassName || ''
+            }`,
           },
           anchorEl: () => wrapperRef.current,
           TransitionProps: {
@@ -104,7 +107,7 @@ export const Select = React.forwardRef(function Select(
         disabled={readOnly || disabled}
         IconComponent={() =>
           loading ? (
-            <Icon.Loading />
+            <Icon.Loading size={size === 'small' ? 16 : 20} strokeWidth={2} />
           ) : (
             <Icon
               name="expand_more"

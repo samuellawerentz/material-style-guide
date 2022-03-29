@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react'
 import { Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
@@ -8,45 +9,51 @@ import { Block } from '../Block/index'
 /**
  * Typography for Contacto Apps
  */
-export const Text = ({
-  type,
-  children,
-  className,
-  variant,
-  color,
-  style,
-  align,
-  ellipsis,
-  component,
-  skeletonText,
-  highlightColor,
-  ...props
-}) => {
-  return (
-    <Typography
-      className={[
-        'sg',
-        'contacto-typography',
-        type ? 'contacto-typography--' + type : '',
-        variant ? 'contacto-typography--' + variant : '',
-        align ? 'contacto-typography--' + align + ' contacto-typography--block' : '',
-        className,
-      ].join(' ')}
-      // eslint-disable-next-line react/prop-types
-      noWrap={props.noWrap || ellipsis}
-      component={component}
-      style={{
-        ...style,
-        backgroundColor: highlightColor ? `var(--${highlightColor})` : undefined,
-        color: color ? `var(--${color})` : undefined,
-      }}
-      skeletonText={skeletonText}
-      {...props}
-    >
-      {children}
-    </Typography>
-  )
-}
+export const Text = React.forwardRef(
+  (
+    {
+      type,
+      children,
+      className,
+      variant,
+      color,
+      style,
+      align,
+      ellipsis,
+      component,
+      skeletonText,
+      highlightColor,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <Typography
+        ref={ref}
+        className={[
+          'sg',
+          'contacto-typography',
+          type ? 'contacto-typography--' + type : '',
+          variant ? 'contacto-typography--' + variant : '',
+          align ? 'contacto-typography--' + align + ' contacto-typography--block' : '',
+          className,
+        ].join(' ')}
+        // eslint-disable-next-line react/prop-types
+        noWrap={props.noWrap || ellipsis}
+        component={component}
+        style={{
+          ...style,
+          backgroundColor: highlightColor ? `var(--${highlightColor})` : undefined,
+          color: color ? `var(--${color})` : undefined,
+        }}
+        skeletonText={skeletonText}
+        {...props}
+      >
+        {children}
+      </Typography>
+    )
+  },
+)
 
 const SkeletonText = (props) => (
   <Text {...props}>
@@ -61,33 +68,42 @@ const SkeletonText = (props) => (
   </Text>
 )
 
-const TextBlock = ({
-  className = '',
-  spacing,
-  style,
-  display,
-  justifyContent,
-  alignItems,
-  horizontalSpacing,
-  padding,
-  ...props
-}) => {
-  const blockProps = {
-    className,
-    spacing,
-    style,
-    display,
-    justifyContent,
-    alignItems,
-    horizontalSpacing,
-    padding,
-  }
-  return (
-    <Block {...blockProps}>
-      <Text {...props}>{props.children}</Text>
-    </Block>
-  )
-}
+const TextBlock = React.forwardRef(
+  (
+    {
+      className = '',
+      spacing,
+      style,
+      display,
+      justifyContent,
+      alignItems,
+      horizontalSpacing,
+      padding,
+      gap,
+      flex,
+      ...props
+    },
+    ref,
+  ) => {
+    const blockProps = {
+      className,
+      spacing,
+      style,
+      display,
+      justifyContent,
+      alignItems,
+      horizontalSpacing,
+      padding,
+      gap,
+      flex,
+    }
+    return (
+      <Block {...blockProps} ref={ref}>
+        <Text {...props}>{props.children}</Text>
+      </Block>
+    )
+  },
+)
 
 Text.Skeleton = SkeletonText
 Text.Block = TextBlock

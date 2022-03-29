@@ -96,3 +96,21 @@ WithErrorMessage.args = {
   value: '',
   errorMsg: 'Required Field',
 }
+
+export const WithLoader = Template.bind({})
+WithLoader.args = {
+  type: 'input',
+  size: 'default',
+  value: '',
+  loading: true,
+}
+
+export const WithClearIcon = Template.bind({})
+WithClearIcon.args = {
+  type: 'input',
+  size: 'default',
+  placeholder: 'A simple text field',
+  maxLength: 50,
+  onClearText: () => {},
+  value: 'Default Text with clear Icon',
+}
