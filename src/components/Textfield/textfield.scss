@@ -49,6 +49,18 @@
             }
         }
 
+        &.contacto-input--multiline {
+            .MuiInputBase-root {
+                height: 100px;
+                box-sizing: border-box;
+                padding: 12px 0px 12px 12px;
+                .MuiInputBase-input {
+                    height: 100%;
+                    padding-right: 12px;
+                }
+            }
+        }
+
         &.contacto-input--has-error {
             .MuiInputBase-root {
                 border: 1px solid var(--danger-color);
