@@ -63,7 +63,7 @@ export const TextField = React.forwardRef(function TextField(
             <Icon
               name="cancel"
               color="gray-2"
-              size={16}
+              size={18}
               className="clear-text-icon"
               onClick={onClearText}
             />
