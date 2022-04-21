@@ -60,6 +60,10 @@
             }
         }
 
+        &.contacto-input--clear-icon .MuiInputBase-root {
+            padding-right: 8px !important;
+        }
+
         &.contacto-input--has-error {
             .MuiInputBase-root {
                 border: 1px solid var(--danger-color);

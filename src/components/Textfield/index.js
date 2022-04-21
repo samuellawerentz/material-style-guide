@@ -49,6 +49,7 @@ export const TextField = React.forwardRef(function TextField(
           errorMsg ? 'contacto-input--has-error' : '',
           loading ? 'contacto-input--is-loading' : '',
           multiline ? 'contacto-input--multiline' : '',
+          onClearText && props.value ? 'contacto-input--clear-icon' : '',
           className,
         ].join(' ')}
         inputProps={{ maxLength: maxLength }}
