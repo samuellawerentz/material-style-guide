@@ -25,6 +25,7 @@ export const TextField = React.forwardRef(function TextField(
     className = '',
     errorMsg,
     loading,
+    multiline,
     ...props
   },
   ref,
@@ -46,6 +47,9 @@ export const TextField = React.forwardRef(function TextField(
           noShadow ? 'contacto-input--no-shadow' : '',
           readOnly ? 'contacto-input--readonly' : '',
           errorMsg ? 'contacto-input--has-error' : '',
+          loading ? 'contacto-input--is-loading' : '',
+          multiline ? 'contacto-input--multiline' : '',
+          onClearText && props.value ? 'contacto-input--clear-icon' : '',
           className,
         ].join(' ')}
         inputProps={{ maxLength: maxLength }}
@@ -60,7 +64,7 @@ export const TextField = React.forwardRef(function TextField(
             <Icon
               name="cancel"
               color="gray-2"
-              size={16}
+              size={18}
               className="clear-text-icon"
               onClick={onClearText}
             />
@@ -81,6 +85,7 @@ export const TextField = React.forwardRef(function TextField(
         }}
         disabled={readOnly || disabled}
         placeholder={placeholder}
+        multiline={multiline}
         {...props}
       />
       {errorMsg && (
@@ -142,6 +147,7 @@ TextField.propTypes = {
   /**
    * Is it a password field?
    */
+  multiline: PropTypes.bool,
   maxLength: PropTypes.number,
   errorMsg: PropTypes.string,
   value: PropTypes.any,
@@ -150,4 +156,5 @@ TextField.propTypes = {
 TextField.defaultProps = {
   size: 'default',
   type: 'input',
+  multiline: false,
 }
