@@ -48,7 +48,7 @@ export const Select = React.forwardRef(function Select(
   }
 
   const generatedOptions = options.map((option) => (
-    <MenuItem value={option.value} key={option.value}>
+    <MenuItem disabled={option.disabled} value={option.value} key={option.value}>
       <Text
         className={selectedValue === option.value ? 'select-item selected-item' : 'select-item'}
         align="left"
