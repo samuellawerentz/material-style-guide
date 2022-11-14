@@ -70,7 +70,7 @@
     --link-color: var(--primary-color);
     --default-container-background: var(--primary-color-4);
     --button-primary: var(--primary-color-2);
-    --button-primary-hover: var(--primary-color-5);
+    --button-primary-hover: var(--primary-color-6);
     --dark-bg: #f8f8fe;
     --radio-color-primary: #93a3b5;
     --select-hover-primary: #3c61cf;
@@ -81,7 +81,6 @@
 
     // Miscellaneous colors
     --white: #FFFFFF;
-    --white-20: #ffffff33;
     --colors-graybase-gray-2: #ccd4dc;
     --colors-graybase-gray-3: #b4bdca;
     --colors-graybase-gray-5: #5f7188;
@@ -90,4 +89,10 @@
     --colors-accent-teal-blue: #5ac8fa;
     --duck-egg-blue: #e9f1fc;
     --active-green: #cef4e6;
+    --shadow-rgb: 106, 110, 128;
+    --shadow-alpha: 0.15;
+    --box-shadow-default: 0px 0px 8px rgba(var(--shadow-rgb), var(--shadow-alpha));
+    --shadow1-rgb: 106, 110, 128;
+    --shadow1-alpha: 0.25;
+    --box-shadow1: 0px 0px 8px rgba(var(--shadow1-rgb), var(--shadow1-alpha));
 }
