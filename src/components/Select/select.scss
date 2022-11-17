@@ -1,8 +1,8 @@
-.sg.contacto-select-wrapper {
+.sg.mui-contacto-select-wrapper {
     position: relative;
     --height: 36px;
 
-    .contacto-select {
+    .mui-contacto-select {
         border-radius: 0;
         box-shadow: 0px 0px 8px rgba(106, 110, 128, 0.15);
         border: 1px solid var(--border-color-1);
@@ -14,7 +14,7 @@
         }
 
         // Type "Background"
-        &.contacto-select--background {
+        &.mui-contacto-select--background {
             border: 1px solid var(--background-highlight-color);
             &:hover,
             &:active,
@@ -37,7 +37,7 @@
                     width: calc(100% - 32px);
                 }
             }
-            .contacto-select-caret {
+            .mui-contacto-select-caret {
                 color: var(--primary-color);
                 right: 4px;
             }
@@ -71,7 +71,7 @@
             }
         }
 
-        .contacto-select-caret {
+        .mui-contacto-select-caret {
             position: absolute;
             right: 8px;
             cursor: pointer;
@@ -80,7 +80,7 @@
         }
 
         &[class*='focused'] {
-            .contacto-icon.contacto-select-caret {
+            .contacto-icon.mui-contacto-select-caret {
                 color: var(--primary-color);
             }
         }
@@ -100,7 +100,7 @@
 
     }
 
-    .contacto-select-placeholder {
+    .mui-contacto-select-placeholder {
         position: absolute;
         bottom: 0;
         transform: translateX(12px);
@@ -111,12 +111,12 @@
         pointer-events: none;
     }
 
-    .contacto-select-label-wrapper {
+    .mui-contacto-select-label-wrapper {
         margin-bottom: 4px;
         line-height: 0;
     }
 
-    &.contacto-select--small {
+    &.mui-contacto-select--small {
         --height: 28px;
     }
 
@@ -127,7 +127,7 @@
 }
 
 
-.sg.contacto-select-listbox {
+.sg.mui-contacto-select-listbox {
     padding: 0;
     border-radius: 0;
     max-height: 238px;
@@ -159,7 +159,7 @@
         padding: 4px 0;
     }
 
-    &.contacto-select-listbox--background {
+    &.mui-contacto-select-listbox--background {
         .MuiListItem-gutters {
             padding-left: 4px;
             padding-right: 4px;
