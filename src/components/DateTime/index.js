@@ -44,7 +44,7 @@ export const DateTime = ({
     setOpenState(true)
   }
 
-  const inputValue = moment(value).format(dateTimeFormat)
+  const inputValue = value ? moment(value).format(dateTimeFormat) : ''
 
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
