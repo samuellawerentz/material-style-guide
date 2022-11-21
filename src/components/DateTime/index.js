@@ -26,12 +26,19 @@ export const DateTime = ({
   onClose,
   allowOnlyPastDate,
   maxDate,
+  placeholder,
 }) => {
   const classes = useStyles()
   const [open, setOpenState] = useState(false)
   const dateTimePickerWrapperRef = useRef(null)
 
-  const placeholder = toolbarType === 'datetime' ? 'Select Date and Time' : 'Select Date'
+  const placeholderText =
+    placeholder ||
+    (toolbarType === 'datetime'
+      ? 'Select Date and Time'
+      : toolbarType === 'time'
+      ? 'Select Time'
+      : 'Select Date')
   const dateTimeFormat = format || FORMATS[toolbarType]
   const views =
     toolbarType === 'datetime'
@@ -57,7 +64,7 @@ export const DateTime = ({
             clearable
             ToolbarComponent={(props) => <ToolbarComponent toolbarType={toolbarType} {...props} />}
             value={value}
-            placeholder={placeholder}
+            placeholder={placeholderText}
             maxDate={maxDate}
             error={error}
             views={views}
@@ -127,6 +134,7 @@ DateTime.propTypes = {
   onClose: PropTypes.any,
   allowOnlyPastDate: PropTypes.any,
   maxDate: PropTypes.any,
+  placeholder: PropTypes.string,
 }
 
 DateTime.defaultProps = {}
