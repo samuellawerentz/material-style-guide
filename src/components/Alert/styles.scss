@@ -1,9 +1,7 @@
 .sg.contacto-alert {
   --base-color: var(--primary-color);
   --bg-color: var(--primary-color-4);
-
   display: flex;
-
   border: 1px solid var(--base-color);
   font-size: 0;
   line-height: 0;
@@ -34,5 +32,5 @@
     --base-color: var(--danger-color);
     --bg-color: var(--danger-color-4);
   }
-  
+
 }
