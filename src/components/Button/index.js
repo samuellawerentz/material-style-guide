@@ -31,7 +31,7 @@ export const getButtonClassName = (
     'contacto-button',
     type ? `contacto-button--${type}` : '',
     size ? `contacto-button--${size}` : '',
-    icon ? `contacto-button--with-icon` : '',
+    icon ? `contacto-button--with-icon--${size}` : '',
     onlyIcon ? 'contacto-button--only-icon' : '',
     loading ? `contacto-button--loading` : '',
     fullWidth ? 'contacto-button--full-width' : '',
