@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Button as MuiButton } from '@material-ui/core'
 import { Icon } from '../Icon/index'
 import './button.scss'
+import { Text } from '../Typography/index'
 export const BUTTON_TYPES = [
   'primary',
   'secondary',
@@ -55,6 +56,7 @@ export const Button = ({
   loaderColor,
   ...props
 }) => {
+  type = props.textType ? 'text-type-button' : type
   return (
     <MuiButton
       className={getButtonClassName(
@@ -74,7 +76,13 @@ export const Button = ({
       {loading ? (
         <Icon.Loading size={20} strokeWidth={1} color={loaderColor} trackColor="white" />
       ) : null}
-      <span className="contacto-button-content">{label || children}</span>
+      <Text
+        className="contacto-button-content"
+        type={props.textType || (type.includes('link') ? 'headline' : 'body')}
+        color={props.textColor}
+      >
+        {label || children}
+      </Text>
     </MuiButton>
   )
 }
@@ -113,6 +121,8 @@ Button.propTypes = {
   children: PropTypes.any,
   loading: PropTypes.bool,
   loaderColor: PropTypes.string,
+  textType: PropTypes.string,
+  textColor: PropTypes.string,
 }
 
 Button.defaultProps = {

@@ -43,6 +43,10 @@
     background-color: var(--hover-color);
   }
 
+  .sg.contacto-typography {
+    color: inherit;
+  }
+
   // Disabled state
   &[disabled],
   &[disabled]:hover {
@@ -52,7 +56,7 @@
   }
 
   // Styles for links
-  &[class*="link"] {
+  &[class*="link"], &[class*="text-type-button"]{
     color: var(--base-color);
     font-weight: 600;
     background-color: var(--white);

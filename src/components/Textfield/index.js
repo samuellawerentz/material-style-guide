@@ -12,6 +12,7 @@ export const TEXTFIELD_TYPES = ['input', 'search-box', 'no-shadow']
 export const TextField = React.forwardRef(function TextField(
   {
     type,
+    inputType,
     label,
     icon,
     size,
@@ -32,24 +33,25 @@ export const TextField = React.forwardRef(function TextField(
 ) {
   icon = type === 'search-box' ? 'search' : icon
   return (
-    <div className="sg contacto-input-wrapper">
+    <div className="sg mui-contacto-input-wrapper">
       {label && (
-        <div className="contacto-input-label-wrapper">
+        <div className="mui-contacto-input-label-wrapper">
           <Text type="caption-bold">{label}</Text>
         </div>
       )}
       <MuiTextField
+        type={inputType}
         ref={ref}
         className={[
-          'contacto-input',
-          'contacto-input--' + type,
-          'contacto-input--' + size,
-          noShadow ? 'contacto-input--no-shadow' : '',
-          readOnly ? 'contacto-input--readonly' : '',
-          errorMsg ? 'contacto-input--has-error' : '',
-          loading ? 'contacto-input--is-loading' : '',
-          multiline ? 'contacto-input--multiline' : '',
-          onClearText && props.value ? 'contacto-input--clear-icon' : '',
+          'mui-contacto-input',
+          'mui-contacto-input--' + type,
+          'mui-contacto-input--' + size,
+          noShadow ? 'mui-contacto-input--no-shadow' : '',
+          readOnly ? 'mui-contacto-input--readonly' : '',
+          errorMsg ? 'mui-contacto-input--has-error' : '',
+          loading ? 'mui-contacto-input--is-loading' : '',
+          multiline ? 'mui-contacto-input--multiline' : '',
+          onClearText && props.value ? 'mui-contacto-input--clear-icon' : '',
           className,
         ].join(' ')}
         inputProps={{ maxLength: maxLength }}
@@ -151,6 +153,7 @@ TextField.propTypes = {
   maxLength: PropTypes.number,
   errorMsg: PropTypes.string,
   value: PropTypes.any,
+  inputType: PropTypes.string,
 }
 
 TextField.defaultProps = {
