@@ -3,6 +3,7 @@
 
     .MuiInput-underline:after {
         transition: none;
+        border-bottom: none;
       }
 
     .MuiInput-underline:before {
@@ -11,6 +12,9 @@
     .MuiInputBase-root {
         cursor: pointer;
     }
+    .MuiFormHelperText-root {
+        display: none;
+      }
 }
 
 .date-select {
