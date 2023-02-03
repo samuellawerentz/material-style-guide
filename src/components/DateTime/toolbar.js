@@ -11,6 +11,7 @@ export const useStyles = makeStyles({
     justifyContent: 'space-between',
     borderBottom: `1px solid var(--border-color-1)`,
     background: '#fff',
+    margin: '0 -24px',
   },
   timeContainer: {
     display: 'flex',
@@ -57,7 +58,7 @@ const ToolbarComponent = function (props) {
       {toolbarType.includes('date') && (
         <div className={classes.dateContainer}>
           <Button
-            textType="title-1"
+            textType="large-title"
             className="date-select"
             textColor="primary-color"
             variant="primary"
@@ -81,17 +82,29 @@ const ToolbarComponent = function (props) {
           <div style={{ display: 'flex' }}>
             <Button
               textType="title-1"
+              textColor={openView === 'hours' && 'primary-color'}
               onClick={() => setOpenView('hours')}
               selected={openView === 'hours'}
               label={date ? date.format(ampm ? 'hh' : 'HH') : '--'}
+              style={{ minWidth: 30 }}
             />
             <Text className={classes.separator}>:</Text>
             <Button
               textType="title-1"
+              textColor={openView === 'minutes' && 'primary-color'}
               onClick={() => setOpenView('minutes')}
               selected={openView === 'minutes'}
               label={date ? date.format('mm') : '--'}
+              style={{ minWidth: 30 }}
             />
+            {/* Comment this out when we roll out "seconds" as well */}
+            {/* <Text className={classes.separator}>:</Text>
+            <Button
+              textType="title-1"
+              onClick={() => setOpenView('seconds')}
+              selected={openView === 'seconds'}
+              label={date ? date.format('ss') : '--'}
+            /> */}
           </div>
           {ampm && (
             <div className={classes.meridiemContainer}>
@@ -100,12 +113,14 @@ const ToolbarComponent = function (props) {
                 textColor={meridiemMode === 'am' ? 'primary-color' : 'gray-2'}
                 label={'AM'}
                 onClick={() => handleMeridiemChange('am')}
+                style={{ minWidth: 30 }}
               />
               <Button
                 textType="body"
                 textColor={meridiemMode === 'pm' ? 'primary-color' : 'gray-2'}
                 label={'PM'}
                 onClick={() => handleMeridiemChange('pm')}
+                style={{ minWidth: 30 }}
               />
             </div>
           )}

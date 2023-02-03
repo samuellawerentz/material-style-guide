@@ -97,7 +97,7 @@ export const DateTime = ({
                 >
                   <Icon
                     name={toolbarType === 'time' ? 'schedule' : 'calendar_today'}
-                    color="gray-5"
+                    color="gray-1"
                     size={18}
                   />
                 </InputAdornment>
