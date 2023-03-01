@@ -1,16 +1,14 @@
 .sg.contacto-note {
   --base-color: var(--primary-color);
-  --bg-color: var(--primary-color-4);
   display: flex;
   font-size: 0;
   line-height: 0;
   color: var(--base-color);
-  background-color: var(--bg-color);
+  background-color: var(--magnolia);
   padding: 16px;
-  --bg-color: var(--magnolia);
 
   &.expand {
-    height: 100%;
+    height: auto;
   }
 
   .expand-icon {
@@ -40,5 +38,6 @@
 .contacto-note-collapse-box {
  height: 20px;
  width: 20px;
+ cursor: pointer;
 }
 

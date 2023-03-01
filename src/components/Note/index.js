@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles.scss'
 import PropTypes from 'prop-types'
 import { Icon } from '../Icon/index'
@@ -7,11 +7,26 @@ import { Text } from '../Typography/index'
 /**
  * Component that is used to show note messages on the UI
  */
-export const Note = ({ className = '', iconName, iconSvg, message, hasLongText, ...props }) => {
-  const [hasCollapsed, setHasCollapsed] = useState(false)
+export const Note = ({
+  className = '',
+  iconName,
+  iconSvg,
+  message,
+  hasLongText = false,
+  expandNote = false,
+  ...props
+}) => {
+  const [hasCollapsed, setHasCollapsed] = useState(expandNote)
   const handleCollapse = () => {
     setHasCollapsed(!hasCollapsed)
   }
+
+  useEffect(() => {
+    if (expandNote && !hasCollapsed) {
+      setHasCollapsed(true)
+    }
+  }, [expandNote])
+
   return (
     <div
       className={['sg contacto-note', `${hasCollapsed ? 'expand' : ''}`, className].join(' ')}
@@ -55,6 +70,10 @@ Note.propTypes = {
    * The note hasLongText will allow to handle long text with collapse toggle
    */
   hasLongText: PropTypes.bool,
+  /**
+   * The note expandNote will expand the note
+   */
+  expandNote: PropTypes.bool,
 }
 
 Note.defaultProps = {}
