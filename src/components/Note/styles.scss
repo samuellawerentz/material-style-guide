@@ -6,6 +6,7 @@
   color: var(--base-color);
   background-color: var(--magnolia);
   padding: 16px;
+  box-shadow: 0px 2px 8px 0px #00000014;
 
   &.expand {
     height: auto;

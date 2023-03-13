@@ -33,7 +33,8 @@ export const Note = ({
       {...props}
     >
       <div className="contacto-note-icon">
-        <Icon name={iconName} size={20} color="secondary-color" />
+        {iconName && <Icon name={iconName} size={20} color="secondary-color" />}
+        {iconSvg && <Icon svg={iconSvg} size={20} color="secondary-color" />}
       </div>
       <div className="contacto-note-message">
         <Text ellipsis={!hasCollapsed && hasLongText} type="caption">
