@@ -14,6 +14,7 @@ export const Note = ({
   message,
   hasLongText = false,
   expandNote = false,
+  children,
   ...props
 }) => {
   const [hasCollapsed, setHasCollapsed] = useState(expandNote)
@@ -39,6 +40,7 @@ export const Note = ({
       <div className="contacto-note-message">
         <Text ellipsis={!hasCollapsed && hasLongText} type="caption">
           {message}
+          {children}
         </Text>
       </div>
       {hasLongText ? (
@@ -66,7 +68,7 @@ Note.propTypes = {
   /**
    * The note message to be displayed
    */
-  message: PropTypes.string,
+  message: PropTypes.any,
   /**
    * The note hasLongText will allow to handle long text with collapse toggle
    */
@@ -75,6 +77,10 @@ Note.propTypes = {
    * The note expandNote will expand the note
    */
   expandNote: PropTypes.bool,
+  /**
+   * The note append the children to message
+   */
+  children: PropTypes.any,
 }
 
 Note.defaultProps = {}

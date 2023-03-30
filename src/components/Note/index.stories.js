@@ -1,6 +1,6 @@
 import React from 'react'
 import { Note } from './'
-
+import { Text } from '../Typography/index'
 export default {
   title: 'Components/Note',
   component: Note,
@@ -15,4 +15,10 @@ Default.args = {
   iconName: 'task',
   hasLongText: true,
   expandNote: true,
+  children: (
+    <Text color="gray-1" type="caption-italic">
+      {' '}
+      (edited)
+    </Text>
+  ),
 }
