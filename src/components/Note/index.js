@@ -68,7 +68,7 @@ Note.propTypes = {
   /**
    * The note message to be displayed
    */
-  message: PropTypes.any,
+  message: PropTypes.string,
   /**
    * The note hasLongText will allow to handle long text with collapse toggle
    */
