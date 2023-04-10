@@ -6,14 +6,12 @@
   --disabled-border-color: var(--disabled-color);
   --border-color: #{$base-color};
 
-  @if $type=="fill"or $type=="link" {
+  @if $type== 'fill' or $type== 'link' {
     --base-color: #{$base-color};
     --text-color: var(--white);
     --disabled-text-color: var(--text-color);
     --disabled-bg-color: var(--disabled-color);
-  }
-
-  @else if $type=="outline" {
+  } @else if $type== 'outline' {
     --base-color: var(--white);
     --text-color: #{$base-color};
     --disabled-text-color: #{$disabled-color};
@@ -43,6 +41,10 @@
     background-color: var(--hover-color);
   }
 
+  .sg.contacto-typography {
+    color: inherit;
+  }
+
   // Disabled state
   &[disabled],
   &[disabled]:hover {
@@ -52,7 +54,8 @@
   }
 
   // Styles for links
-  &[class*="link"] {
+  &[class*='link'],
+  &[class*='text-type-button'] {
     color: var(--base-color);
     font-weight: 600;
     background-color: var(--white);
@@ -73,30 +76,44 @@
     }
   }
 
-
   // Button Variations start here
   // The style generation is made simple using SCSS mixins and CSS variables
   &--primary,
   &--link {
-    @include btn-colors("fill", var(--primary-color), var(--primary-color-5), var(--primary-color-2));
+    @include btn-colors(
+      'fill',
+      var(--primary-color),
+      var(--primary-color-6),
+      var(--primary-color-2)
+    );
   }
 
   &--secondary {
-    @include btn-colors("outline", var(--primary-color), var(--dark-bg), var(--primary-color-2));
+    @include btn-colors('outline', var(--primary-color), var(--dark-bg), var(--primary-color-2));
   }
 
   &--danger {
     &-primary {
-      @include btn-colors("fill", var(--danger-color), var(--danger-color-5), var(--danger-color-2));
+      @include btn-colors(
+        'fill',
+        var(--danger-color),
+        var(--danger-color-5),
+        var(--danger-color-2)
+      );
     }
 
     &-secondary {
-      @include btn-colors("outline", var(--danger-color), var(--danger-color-4), var(--danger-color-2));
+      @include btn-colors(
+        'outline',
+        var(--danger-color),
+        var(--danger-color-4),
+        var(--danger-color-2)
+      );
     }
   }
 
   &--link-danger {
-    @include btn-colors("link", var(--danger-color), var(--danger-color-5), var(--danger-color-2));
+    @include btn-colors('link', var(--danger-color), var(--danger-color-5), var(--danger-color-2));
   }
 
   // Spacing and sizing related styles start here
@@ -134,18 +151,36 @@
   }
 
   &--with-icon {
-    padding-left: 8px;
+    &--small {
+      padding-left: 4px;
+    }
+    &--default {
+      padding-left: 8px;
+    }
+    &--large {
+      padding-left: 8px;
+    }
   }
 
   // Icon related styles
   .contacto-icon {
-    margin-right: 8px
+    &.small {
+      margin-right: 4px;
+      font-size: 18px;
+    }
+    &.default {
+      margin-right: 8px;
+    }
+    &.large {
+      margin-right: 8px;
+    }
   }
 
   &--only-icon {
     padding: 8px;
     min-width: auto;
     width: auto;
+    border: 0;
 
     .contacto-icon {
       margin-right: 0;
@@ -153,6 +188,16 @@
       &.small {
         font-size: 20px;
       }
+    }
+  }
+
+  &--loading {
+    span.MuiButton-label > *:not(.contacto-loader) {
+      opacity: 0;
+    }
+
+    span.MuiButton-label .contacto-loader {
+      position: absolute;
     }
   }
 

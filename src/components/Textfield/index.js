@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextField as MuiTextField } from '@material-ui/core'
 import { Text } from '../Typography/index'
+import { Icon } from '../Icon/index'
 import PropTypes from 'prop-types'
 import './textfield.scss'
 
@@ -11,54 +12,89 @@ export const TEXTFIELD_TYPES = ['input', 'search-box', 'no-shadow']
 export const TextField = React.forwardRef(function TextField(
   {
     type,
+    inputType,
     label,
     icon,
     size,
     disabled,
     placeholder,
+    onClearText,
     readOnly,
     password,
     noShadow,
+    maxLength,
     className = '',
+    errorMsg,
+    loading,
+    multiline,
     ...props
   },
   ref,
 ) {
   icon = type === 'search-box' ? 'search' : icon
   return (
-    <div className="sg contacto-input-wrapper">
+    <div className="sg mui-contacto-input-wrapper">
       {label && (
-        <div className="contacto-input-label-wrapper">
+        <div className="mui-contacto-input-label-wrapper">
           <Text type="caption-bold">{label}</Text>
         </div>
       )}
       <MuiTextField
+        type={inputType}
         ref={ref}
         className={[
-          'contacto-input',
-          'contacto-input--' + type,
-          'contacto-input--' + size,
-          noShadow ? 'contacto-input--no-shadow' : '',
-          readOnly ? 'contacto-input--readonly' : '',
+          'mui-contacto-input',
+          'mui-contacto-input--' + type,
+          'mui-contacto-input--' + size,
+          noShadow ? 'mui-contacto-input--no-shadow' : '',
+          readOnly ? 'mui-contacto-input--readonly' : '',
+          errorMsg ? 'mui-contacto-input--has-error' : '',
+          loading ? 'mui-contacto-input--is-loading' : '',
+          multiline ? 'mui-contacto-input--multiline' : '',
+          onClearText && props.value ? 'mui-contacto-input--clear-icon' : '',
           className,
         ].join(' ')}
+        inputProps={{ maxLength: maxLength }}
         InputProps={{
           disableUnderline: true,
           fullWidth: true,
+          endAdornment: loading ? (
+            <span className="contacto-loader--input-postfix">
+              <Icon.Loading size={size === 'small' ? 16 : 20} strokeWidth={2} />
+            </span>
+          ) : onClearText && props.value ? (
+            <Icon
+              name="cancel"
+              color="gray-2"
+              size={18}
+              className="clear-text-icon"
+              onClick={onClearText}
+            />
+          ) : null,
           startAdornment: icon ? (
-            <>
-              {
-                <span className="material-icons-round contacto-icon contacto-icon--input-prefix">
-                  {icon}
-                </span>
-              }
-            </>
+            typeof icon === 'string' ? (
+              <>
+                {
+                  <span className="material-icons-round contacto-icon contacto-icon--input-prefix">
+                    {icon}
+                  </span>
+                }
+              </>
+            ) : (
+              <>{icon}</>
+            )
           ) : null,
         }}
         disabled={readOnly || disabled}
         placeholder={placeholder}
+        multiline={multiline}
         {...props}
       />
+      {errorMsg && (
+        <Text.Block type="caption" color="danger-color" spacing={[0, 4]}>
+          {errorMsg}
+        </Text.Block>
+      )}
     </div>
   )
 })
@@ -94,6 +130,10 @@ TextField.propTypes = {
    */
   readOnly: PropTypes.bool,
   /**
+   * Show the loader
+   */
+  loading: PropTypes.bool,
+  /**
    * Set to true, if you don't want the shadow.
    */
   noShadow: PropTypes.bool,
@@ -101,9 +141,23 @@ TextField.propTypes = {
    * Is it a password field?
    */
   password: PropTypes.bool,
+  /**
+   * Action to take on clearing the input,
+   * Also used to show the clear icon
+   */
+  onClearText: PropTypes.func,
+  /**
+   * Is it a password field?
+   */
+  multiline: PropTypes.bool,
+  maxLength: PropTypes.number,
+  errorMsg: PropTypes.string,
+  value: PropTypes.any,
+  inputType: PropTypes.string,
 }
 
 TextField.defaultProps = {
   size: 'default',
   type: 'input',
+  multiline: false,
 }

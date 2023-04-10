@@ -10,6 +10,7 @@ import { Icon } from '../Icon/index'
 export const Select = React.forwardRef(function Select(
   {
     label,
+    type,
     icon,
     disabled,
     placeholder,
@@ -47,11 +48,12 @@ export const Select = React.forwardRef(function Select(
   }
 
   const generatedOptions = options.map((option) => (
-    <MenuItem value={option.value} key={option.value}>
+    <MenuItem disabled={option.disabled} value={option.value} key={option.value}>
       <Text
         className={selectedValue === option.value ? 'select-item selected-item' : 'select-item'}
         align="left"
         ellipsis
+        title={typeof option.label === 'string' ? option.label : option.value}
       >
         {option.label ? option.label : option.value}
       </Text>
@@ -59,31 +61,38 @@ export const Select = React.forwardRef(function Select(
   ))
   return (
     <div
-      className={['sg contacto-select-wrapper ', `contacto-select--${size}`, className].join(' ')}
+      className={[
+        'sg mui-contacto-select-wrapper ',
+        `mui-contacto-select--${size}`,
+        className,
+      ].join(' ')}
       ref={wrapperRef}
     >
       {label && (
-        <div className="contacto-select-label-wrapper">
+        <div className="mui-contacto-select-label-wrapper">
           <Text type="caption-bold">{label}</Text>
         </div>
       )}
       {placeholder && !selectedValue && (
-        <Text color="gray-2" className="contacto-select-placeholder">
+        <Text color="gray-2" className="mui-contacto-select-placeholder">
           {placeholder}
         </Text>
       )}
       <MaterialSelect
         className={[
-          'contacto-select',
-          readOnly ? 'contacto-select--readonly' : '',
-          noShadow ? 'contacto-select--no-shadow' : '',
+          'mui-contacto-select',
+          readOnly ? 'mui-contacto-select--readonly' : '',
+          noShadow ? 'mui-contacto-select--no-shadow' : '',
+          `mui-contacto-select--${type}`,
         ].join(' ')}
         ref={ref}
         onChange={handleChange}
         renderValue={renderValue ? handleRenderValue : undefined}
         MenuProps={{
           classes: {
-            paper: `sg contacto-select-listbox ${dropdownClassName || ''}`,
+            paper: `sg mui-contacto-select-listbox ${
+              type ? `mui-contacto-select-listbox--${type}` : ''
+            } ${dropdownClassName || ''}`,
           },
           anchorEl: () => wrapperRef.current,
           TransitionProps: {
@@ -102,12 +111,13 @@ export const Select = React.forwardRef(function Select(
         disabled={readOnly || disabled}
         IconComponent={() =>
           loading ? (
-            <Icon.Loading />
+            <Icon.Loading size={size === 'small' ? 16 : 20} strokeWidth={2} />
           ) : (
             <Icon
               name="expand_more"
+              color={disabled ? 'gray-2' : 'gray-1'}
               onClick={onIconClick}
-              className="contacto-select-caret"
+              className="mui-contacto-select-caret"
               size={20}
             />
           )
@@ -185,6 +195,7 @@ Select.propTypes = {
   renderValue: PropTypes.func,
   value: PropTypes.any,
   dropdownWidth: PropTypes.any,
+  type: PropTypes.any,
 }
 
 Select.defaultProps = {

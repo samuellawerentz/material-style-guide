@@ -1,5 +1,5 @@
-.sg.contacto-input-wrapper {
-    .contacto-input {
+.sg.mui-contacto-input-wrapper {
+    .mui-contacto-input {
         --height: 36px;
         width: 100%;
 
@@ -7,6 +7,11 @@
             padding: 0;
             height: calc(var(--height) - 2px);
         }
+        .clear-text-icon {
+            display: none;
+            cursor: pointer;
+        }
+
         .MuiInputBase-root {
             font-family: Poppins, sans-serif;
             font-size: 14px;
@@ -15,19 +20,53 @@
             box-shadow: 0px 0px 8px rgba(106, 110, 128, 0.15);
             border: 1px solid var(--border-color-1);
             height: var(--height);
-            padding-left: 12px;
+            padding: 0 12px;
             width: 100%;
             &:hover,
             &:active,
             &:focus,
             &[class*='focused'] {
                 border: 1px solid var(--primary-color);
+                .clear-text-icon {
+                    display: block;
+                }
             }
             
             &[class*='focused'] {
                 .contacto-icon {
                     color: var(--primary-color);
                 }
+            }
+        }
+
+        &.mui-contacto-input--is-loading {
+            .MuiInputBase-input {
+                max-width: 90% !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        &.mui-contacto-input--multiline {
+            .MuiInputBase-root {
+                height: 100px;
+                box-sizing: border-box;
+                padding: 12px 0px 12px 12px;
+                .MuiInputBase-input {
+                    height: 100%;
+                    padding-right: 12px;
+                }
+            }
+        }
+
+        &.mui-contacto-input--clear-icon .MuiInputBase-root {
+            padding-right: 8px !important;
+        }
+
+        &.mui-contacto-input--has-error {
+            .MuiInputBase-root {
+                border: 1px solid var(--danger-color);
             }
         }
 
@@ -53,11 +92,11 @@
             }
         }
 
-        &.contacto-input--small {
+        &.mui-contacto-input--small {
             --height: 28px;
         }
 
-        &.contacto-input--large {
+        &.mui-contacto-input--large {
             --height: 44px;
 
             &, &::placeholder {
@@ -65,17 +104,17 @@
             }
         }
 
-        &.contacto-input--search-box .MuiInputBase-root {
+        &.mui-contacto-input--search-box .MuiInputBase-root {
             box-shadow: none;
             padding-left: 8px;
         }
 
-        &.contacto-input--no-shadow .MuiInputBase-root {
+        &.mui-contacto-input--no-shadow .MuiInputBase-root {
             box-shadow: none;
         }
     }
 
-    .contacto-input-label-wrapper {
+    .mui-contacto-input-label-wrapper {
         margin-bottom: 4px;
         line-height: 0;
     }
@@ -84,5 +123,10 @@
         color: var(--gray-1);
         font-size: 20px;
         margin-right: 4px;
+    }
+
+    .contacto-loader--input-postfix {
+        position: absolute;
+        right: 8px;
     }
 }

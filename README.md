@@ -38,6 +38,19 @@ This style guide completely depends on CSS variables that are commonly defined b
 
 The icons used are taken from the google icon package. We use Material Rounded Icons throughout our App. For icon names, please visit [Google Material Icon Website](https://fonts.google.com/icons)
 
+## Dev Setup
+- Make sure you have the .npmrc file with the proper access credentials. You need to have a token that has read/publish package access
+  ```
+  //npm.pkg.github.com/:_authToken=YOUR_GIT_TOKEN_WITH_READ_PUBLISH_PACKAGE_ACCESS
+  ```
+- To run the setup locally use `npm run storybook`
+
+### Publishing
+- Once your changes are done
+- Bump the version number in `package.json` (important)
+- Run `npm run build`
+- In order to publish use `npm publish` command. This will only work if you have write access in your git token
+
 ## Useful Links
 
 - Design Style Guide

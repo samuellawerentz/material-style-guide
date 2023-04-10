@@ -1,0 +1,51 @@
+// Add utility classes here
+.sg-zero-line-height {
+    line-height: 0 !important;
+}
+
+.sg-full-width {
+    width: 100%;
+}
+
+
+.contacto-skeleton {
+    position: relative;
+
+    &-text {
+        display: inline-block;
+        overflow: hidden;
+        line-height: inherit;
+    }
+
+    &.skeleton--show:before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgb(228, 228, 228);
+    }
+
+    &.skeleton--show:after {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 0px;
+        bottom: 0px;
+        width: 50px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4) 50%, transparent);
+        animation: gradient .7s ease-in-out infinite forwards;
+    }
+}
+
+
+@keyframes gradient {
+	0% {
+		left: -45px;
+	}
+	100% {
+		left: calc(100% + 15px);
+	}
+}
