@@ -17,7 +17,6 @@ Default.args = {
   expandNote: true,
   children: (
     <Text color="gray-1" type="caption-italic">
-      {' '}
       (edited)
     </Text>
   ),

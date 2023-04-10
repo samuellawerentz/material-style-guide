@@ -6,7 +6,8 @@
   color: var(--base-color);
   background-color: var(--magnolia);
   padding: 16px;
-  box-shadow: 0px 2px 8px 0px #0000001A;
+  height: 20px;
+  box-shadow: 0px 2px 8px 0px var(--note-shadow-color);
 
 
   &.expand {
