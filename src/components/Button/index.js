@@ -31,7 +31,7 @@ export const getButtonClassName = (
     'contacto-button',
     type ? `contacto-button--${type}` : '',
     size ? `contacto-button--${size}` : '',
-    icon ? `contacto-button--with-icon` : '',
+    icon ? `contacto-button--with-icon--${size}` : '',
     onlyIcon ? 'contacto-button--only-icon' : '',
     loading ? `contacto-button--loading` : '',
     fullWidth ? 'contacto-button--full-width' : '',
@@ -74,7 +74,12 @@ export const Button = ({
       {...props}
     >
       {loading ? (
-        <Icon.Loading size={20} strokeWidth={1} color={loaderColor} trackColor="white" />
+        <Icon.Loading
+          size={size === 'small' ? 18 : 20}
+          strokeWidth={1}
+          color={loaderColor}
+          trackColor="white"
+        />
       ) : null}
       <Text
         className="contacto-button-content"

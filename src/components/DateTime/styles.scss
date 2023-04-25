@@ -3,6 +3,7 @@
 
     .MuiInput-underline:after {
         transition: none;
+        border-bottom: none;
       }
 
     .MuiInput-underline:before {
@@ -11,14 +12,33 @@
     .MuiInputBase-root {
         cursor: pointer;
     }
+    .MuiFormHelperText-root {
+        display: none;
+      }
 }
 
-.date-select {
-    .contacto-typography {
-        font-weight: 600 !important;
+
+
+  .MuiPickersBasePicker-pickerView {
+    .MuiTypography-root.MuiTypography-body1.MuiTypography-alignCenter {
+        font-weight: 600;
     }
-}
-
-.MuiPickersDay-daySelected {
-    background-color: var(--primary-color) !important;
-}
+    .MuiPickersCalendarHeader-dayLabel {
+        text-transform: uppercase;
+    }
+    .MuiPickersDay-daySelected {
+        background-color: var(--primary-color) !important;
+        border-radius: 0 !important;
+    }
+    .MuiPickersDay-day:hover {
+        border-radius: 0;
+    }
+    
+    .MuiPickersClockPointer-pointer, .MuiPickersClockPointer-thumb {
+        background-color: var(--primary-color) !important;
+      }
+    
+      .MuiPickersClock-clock {
+        background-color: var(--gray-6) !important;
+      }
+  }
